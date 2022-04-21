@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+
+function Card(props){
+
+  const cardBackground = {    
+    background: `linear-gradient(135deg, ${props.firstHex} 0%, ${props.secondHex} 100%)`
+  }
+    return (
+      <div style={cardBackground} className="Card">
+        <div className='Card-Hex'>
+          <p style={{color: props.firstHex}}>{props.firstHex}</p>
+          <p style={{color: props.secondHex}}>{props.secondHex}</p>
+        </div>
+      </div>
+    );
+  }
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Card firstHex="#FF72CE" secondHex="#FF3434"/>
+      <Card firstHex="#FF348A" secondHex="#7277FF"/>
+      <Card firstHex="#6E7BFF" secondHex="#34C8FF"/>
     </div>
   );
 }
